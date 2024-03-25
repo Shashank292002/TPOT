@@ -7,7 +7,7 @@ T-Pot is the all in one, optionally distributed, multiarch (amd64, arm64) honeyp
 
 # TL;DR
 1. Meet the [system requirements](#system-requirements). The T-Pot installation needs at least 8-16 GB RAM and 128 GB free disk space as well as a working (outgoing non-filtered) internet connection.
-2. Download the T-Pot ISO from [GitHub](https://github.com/telekom-security/tpotce/releases) according to your architecture (amd64, arm64) or [create it yourself](#create-your-own-iso-image).
+2. Download the T-Pot ISO from [GitHub](https://github.com/Shashank292002/TPOT) according to your architecture (amd64, arm64) or [create it yourself](#create-your-own-iso-image).
 3. Install the system in a [VM](#running-in-a-vm) or on [physical hardware](#running-on-hardware) with [internet access](#system-placement).
 4. Enjoy your favorite beverage - [watch](https://sicherheitstacho.eu) and [analyze](#kibana-dashboard).
 <br><br>
@@ -87,7 +87,7 @@ T-Pot is the all in one, optionally distributed, multiarch (amd64, arm64) honeyp
 
 # Disclaimer
 - You install and run T-Pot within your responsibility. Choose your deployment wisely as a system compromise can never be ruled out.
-- For fast help research the [Issues](https://github.com/telekom-security/tpotce/issues) and [Discussions](https://github.com/telekom-security/tpotce/discussions).
+- For fast help research the [Issues](https://github.com/Shashank292002/TPOT/issues) and [Discussions](https://github.com/Shashank292002/TPOT/discussions).
 - The software is designed and offered with best effort in mind. As a community and open source project it uses lots of other open source software and may contain bugs and issues. Report responsibly.
 - Honeypots - by design - should not host any sensitive data. Make sure you don't add any.
 - By default, your data is submitted to [Sicherheitstacho](https://www.sicherheitstacho.eu/start/main). You can disable this in the config (`/opt/tpot/etc/tpot.yml`) by [removing](#community-data-submission) the ewsposter section. But in this case sharing really is caring!
@@ -142,8 +142,7 @@ T-Pot offers docker images for the following honeypots ...
 ![Architecture](doc/architecture.png)
 
 The source code and configuration files are fully stored in the T-Pot GitHub repository. The docker images are built and preconfigured for the T-Pot environment. 
-
-The individual Dockerfiles and configurations are located in the [docker folder](https://github.com/telekom-security/tpotce/tree/master/docker).
+The individual Dockerfiles and configurations are located in the [docker folder](https://github.com/Shashank292002/TPOT/tree/master/docker).
 <br><br>
 
 ## Services
@@ -230,10 +229,7 @@ Since the number of possible hardware combinations is too high to make general r
 
 ## Running in a Cloud
 T-Pot is tested on and known to run on ...
-* Telekom OTC using the post install method
-* Amazon AWS using the post install method (somehow limited)
-
-Some users report working installations on other clouds and hosters, i.e. Azure and GCP. Hardware requirements may be different. If you are unsure you should research [issues](https://github.com/telekom-security/tpotce/issues) and [discussions](https://github.com/telekom-security/tpotce/discussions) and run some functional tests. Cloud support is a community developed feature and hyperscalers are known to adjust linux images, so expect some necessary adjustments on your end. 
+Some users report working installations on other clouds and hosters, i.e. Azure and GCP. Hardware requirements may be different. If you are unsure you should research [issues](https://github.com/Shashank292002/TPOT/issues) and [discussions](https://github.com/Shashank292002/TPOT/discussions) and run some functional tests. Cloud support is a community developed feature and hyperscalers are known to adjust linux images, so expect some necessary adjustments on your end. 
 <br><br>
 
 ## Required Ports
@@ -290,11 +286,11 @@ Installing T-Pot based on an ISO image is basically the same routine as with any
 <br><br> 
 
 ### **Download ISO Image**
-On the [T-Pot release page](https://github.com/telekom-security/tpotce/releases) you will find two prebuilt ISO images for download `tpot_amd64.iso` and `tpot_arm64.iso`. Both are based on Debian 11 for x64 / arm64 based hardware. So far ARM64 support is limited, but works mostly fine with [UTM](#running-in-a-vm) based VMs on Apple Silicon (M1x) Macs.
+On the [T-Pot release page](https://github.com/Shashank292002/TPOT/releases) you will find two prebuilt ISO images for download `tpot_amd64.iso` and `tpot_arm64.iso`. Both are based on Debian 11 for x64 / arm64 based hardware. So far ARM64 support is limited, but works mostly fine with [UTM](#running-in-a-vm) based VMs on Apple Silicon (M1x) Macs.
 <br><br>
 
 ### **Create your own ISO Image**
-In case you want to modify T-Pot for your environment or simply want to take things into your own hands you can use the [ISO Creator](https://github.com/telekom-security/tpotce) to build your own ISO image.
+In case you want to modify T-Pot for your environment or simply want to take things into your own hands you can use the [ISO Creator](https://github.com/Shashank292002/TPOT) to build your own ISO image.
 
 **Requirements to create the ISO image:**
 - Debian 11 as host system (others *may* work, but *remain* untested)
@@ -306,8 +302,8 @@ In case you want to modify T-Pot for your environment or simply want to take thi
 
 1. Clone the repository and enter it.
 ```
-git clone https://github.com/telekom-security/tpotce
-cd tpotce
+git clone https://github.com/Shashank292002/TPOT
+cd TPOT
 ```
 2. Run `makeiso.sh` to build the ISO image.
 The script will download and install dependencies necessary to build the image. It will further download the Debian Netiso installer image (~50-150MB) which T-Pot is based on.
@@ -329,8 +325,8 @@ Since T-Pot is based on the Debian Netinstall Image ([amd64](http://ftp.debian.o
 The post install method must be executed by the `root` (`sudo su -`, `su -`), just follow the following steps:
 
 ```
-git clone https://github.com/telekom-security/tpotce
-cd tpotce/iso/installer/
+git clone https://github.com/Shashank292002/TPOT
+cd TPOT/iso/installer/
 ./install.sh --type=user
 ```
 
@@ -338,14 +334,14 @@ The installation will now start, you can now move on to the [T-Pot Installer](#t
 <br><br>
 
 ### **Post-Install Auto Method**
-You can also let the installer run automatically if you provide your own `tpot.conf`. An example is available in `tpotce/iso/installer/tpot.conf.dist`. This should make things easier in case you want to automate the installation i.e. with **Ansible**.
+You can also let the installer run automatically if you provide your own `tpot.conf`. An example is available in `TPOT/iso/installer/tpot.conf.dist`. This should make things easier in case you want to automate the installation i.e. with **Ansible**.
 
 Just follow these steps while adjusting `tpot.conf` to your needs:
 
 ```
-git clone https://github.com/telekom-security/tpotce
-cd tpotce/iso/installer/
-cp tpot.conf.dist tpot.conf
+git clone https://github.com/Shashank292002/TPOT
+cd TPOT/iso/installer/
+cp TPOT.conf.dist tpot.conf
 ./install.sh --type=auto --conf=tpot.conf
 ```
 <br><br>
@@ -386,16 +382,6 @@ The Playbook in the [`cloud/ansible/openstack`](cloud/ansible/openstack) folder 
 It first creates all resources (security group, network, subnet, router), deploys one (or more) new servers and then installs and configures T-Pot on them.
 
 You can have a look at the Playbook and easily adapt the deploy role for other [cloud providers](https://docs.ansible.com/ansible/latest/scenario_guides/cloud_guides.html). Check out [Ansible Galaxy](https://galaxy.ansible.com/search?keywords=&order_by=-relevance&page=1&deprecated=false&type=collection&tags=cloud) for more cloud collections.
-
-*Please note*: Cloud providers usually offer adjusted Debian OS images, which might not be compatible with T-Pot. There is no cloud provider support provided of any kind.
-<br><br>
-
-### **Terraform Configuration**
-You can find a [Terraform](https://www.terraform.io/) configuration in the [`cloud/terraform`](cloud/terraform) folder.
-This can be used to launch a virtual machine, bootstrap any dependencies and install T-Pot in a single step.
-
-Configurations for **Amazon Web Services** (AWS) and **Open Telekom Cloud** (OTC) are currently included.  
-This can easily be extended to support other [Terraform providers](https://registry.terraform.io/browse/providers?category=public-cloud%2Ccloud-automation%2Cinfrastructure).
 
 *Please note*: Cloud providers usually offer adjusted Debian OS images, which might not be compatible with T-Pot. There is no cloud provider support provided of any kind.
 <br><br>
@@ -698,7 +684,7 @@ Some T-Pot updates will require you to update the Kibana objects. Either to supp
 This will export a NDJSON file with all your objects. Always run a full export to make sure all references are included.
 
 ### **Import**
-1. [Download the NDJSON file](https://github.com/dtag-dev-sec/tpotce/blob/master/etc/objects/kibana_export.ndjson.zip) and unzip it.
+1. [Download the NDJSON file](https://github.com/dtag-dev-sec/TPOT/blob/master/etc/objects/kibana_export.ndjson.zip) and unzip it.
 2. Go to Kibana
 3. Click on "Stack Management"
 4. Click on "Saved Objects"
@@ -813,30 +799,16 @@ T-Pot is provided ***as is*** open source ***without*** any commitment regarding
 
 If you are a company or institution and wish a personal contact aside from [issues](#issues) and [discussions](#discussions) please get in contact with our [sales team](https://www.t-systems.com/de/en/security).
 
-If you are a security researcher and want to responsibly report an issue please get in touch with our [CERT](https://www.telekom.com/en/corporate-responsibility/data-protection-data-security/security/details/introducing-deutsche-telekom-cert-358316).
-<br><br>
-
 ## Issues
-Please report issues (errors) on our [GitHub Issues](https://github.com/telekom-security/tpotce/issues), but [troubleshoot](#troubleshooting) first. Issues not providing information to address the error will be closed or converted into [discussions](#discussions).
+Please report issues (errors) on our [GitHub Issues](https://github.com/Shashank292002/TPOT/issues), but [troubleshoot](#troubleshooting) first. Issues not providing information to address the error will be closed or converted into [discussions](#discussions).
 
 Feel free to use the search function, it is possible a similar issue has been addressed already, with the solution just a search away.
 <br><br>
 
 ## Discussions
-General questions, ideas, show & tell, etc. can be addressed on our [GitHub Discussions](https://github.com/telekom-security/tpotce/discussions).
+General questions, ideas, show & tell, etc. can be addressed on our [GitHub Discussions](hhttps://github.com/Shashank292002/TPOT/discussions).
 
 Feel free to use the search function, it is possible a similar discussion has been opened already, with an answer just a search away.
-<br><br>
-
-# Licenses
-The software that T-Pot is built on uses the following licenses.
-<br>GPLv2: [conpot](https://github.com/mushorg/conpot/blob/master/LICENSE.txt), [dionaea](https://github.com/DinoTools/dionaea/blob/master/LICENSE), [honeytrap](https://github.com/armedpot/honeytrap/blob/master/LICENSE), [suricata](http://suricata-ids.org/about/open-source/)
-<br>GPLv3: [adbhoney](https://github.com/huuck/ADBHoney), [elasticpot](https://gitlab.com/bontchev/elasticpot/-/blob/master/LICENSE), [ewsposter](https://github.com/telekom-security/ews/), [log4pot](https://github.com/thomaspatzke/Log4Pot/blob/master/LICENSE), [fatt](https://github.com/0x4D31/fatt/blob/master/LICENSE), [heralding](https://github.com/johnnykv/heralding/blob/master/LICENSE.txt), [ipphoney](https://gitlab.com/bontchev/ipphoney/-/blob/master/LICENSE), [redishoneypot](https://github.com/cypwnpwnsocute/RedisHoneyPot/blob/main/LICENSE), [sentrypeer](https://github.com/SentryPeer/SentryPeer/blob/main/LICENSE.GPL-3.0-only), [snare](https://github.com/mushorg/snare/blob/master/LICENSE), [tanner](https://github.com/mushorg/snare/blob/master/LICENSE)
-<br>Apache 2 License: [cyberchef](https://github.com/gchq/CyberChef/blob/master/LICENSE), [dicompot](https://github.com/nsmfoo/dicompot/blob/master/LICENSE), [elasticsearch](https://github.com/elasticsearch/elasticsearch/blob/master/LICENSE.txt), [logstash](https://github.com/elasticsearch/logstash/blob/master/LICENSE), [kibana](https://github.com/elasticsearch/kibana/blob/master/LICENSE.md), [docker](https://github.com/docker/docker/blob/master/LICENSE)
-<br>MIT license: [ciscoasa](https://github.com/Cymmetria/ciscoasa_honeypot/blob/master/LICENSE), [ddospot](https://github.com/aelth/ddospot/blob/master/LICENSE), [elasticvue](https://github.com/cars10/elasticvue/blob/master/LICENSE), [glutton](https://github.com/mushorg/glutton/blob/master/LICENSE), [hellpot](https://github.com/yunginnanet/HellPot/blob/master/LICENSE), [maltrail](https://github.com/stamparm/maltrail/blob/master/LICENSE)
-<br> Unlicense: [endlessh](https://github.com/skeeto/endlessh/blob/master/UNLICENSE)
-<br> Other: [citrixhoneypot](https://github.com/MalwareTech/CitrixHoneypot#licencing-agreement-malwaretech-public-licence), [cowrie](https://github.com/cowrie/cowrie/blob/master/LICENSE.rst), [mailoney](https://github.com/awhitehatter/mailoney), [Debian licensing](https://www.debian.org/legal/licenses/), [Elastic License](https://www.elastic.co/licensing/elastic-license)
-<br> AGPL-3.0: [honeypots](https://github.com/qeeqbox/honeypots/blob/main/LICENSE)
 <br><br>
 
 # Credits
