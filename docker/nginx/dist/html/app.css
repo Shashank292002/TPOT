@@ -79,9 +79,10 @@
 }
 
 .withImageBackground {
-  background-image: var(--imgcol), var(--imgbg);
+  background-image: url('assets/Multi-Cloud_Guard.png'), var(--imgbg);
   background-size: cover;
 }
+
 
 body {
   width: 100vw;
