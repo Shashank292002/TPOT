@@ -53,19 +53,19 @@ const CONFIG = {
         link: '/spiderfoot/',
       },
     ],
-    secondList: [
-      {
-        name: 'SecurityMeter',
-        link: 'https://sicherheitstacho.eu',
-      },
+  secondList: [
+      // {
+      //   name: 'SecurityMeter',
+      //   link: 'https://sicherheitstacho.eu',
+      // },
       {
         name: 'T-Pot @ GitHub',
-        link: 'https://github.com/telekom-security/tpotce/',
+        link: 'https://github.com/Shashank292002/TPOT/',
       },
       {
         name: 'T-Pot ReadMe',
-        link: 'https://github.com/telekom-security/tpotce/blob/master/README.md',
-      },      
+        link: 'https://github.com/Shashank292002/TPOT/blob/main/README.md',
+      },     
     ],
   },
 };
